@@ -200,6 +200,7 @@ In this task, we will ingest data into Azure Synapse Analytics by creating a pip
     - **Fault tolerance (3)**: *Leave blank*
     - **Enable logging**: <u>Un</u>selected
     - **Enable staging** : <u>Un</u>selected **(4)**
+
       ![Azure portal with a cloud shell pane](./images/DA-image47.png)
 
 11. On the **Review and finish** step, on the **Review** substep, read the summary and then click **Next >**. 
