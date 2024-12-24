@@ -132,7 +132,7 @@ In this task, we will ingest data into Azure Synapse Analytics by creating a pip
 
 3. On the **Source** step, in the **Dataset** substep, select the following settings:
     - **Source type (1)**: All
-    - **Connection**: Select **+ New connection (2)**, and in the **New Connection** pane that appears, on the **Generic protocol (3)** tab, select **HTTP (4)**. Then continue and create a connection to a data file using the following settings and click **Create (12)**:*
+    - **Connection**: Select **+ New connection (2)**, and in the **New Connection** pane that appears, on the **Generic protocol (3)** tab, select **HTTP (4)**. Then continue and create a connection to a data file using the following settings and click **Create (12)**:
         - **Name (6)**: Products
         - **Description (7)**: Product list via HTTP
         - **Connect via integration runtime (8)**: AutoResolveIntegrationRuntime
