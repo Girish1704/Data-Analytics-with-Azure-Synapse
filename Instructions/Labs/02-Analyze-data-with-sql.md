@@ -39,7 +39,7 @@ In this task, you'll use a combination of a PowerShell script and an ARM templat
 
    ![Azure portal with a cloud shell pane](./images/DA-image3.png)
 
-1. Within the Mount storage account pane, select **we will create a storage aacount for you (1)** and click **Next (2)**.
+1. Within the Mount storage account pane, select **we will create a storage account for you (1)** and click **Next (2)**.
 
     ![Azure portal with a cloud shell pane](./images/DA-image4.png)
 
