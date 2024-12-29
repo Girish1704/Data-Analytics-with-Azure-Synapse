@@ -85,7 +85,7 @@ In this task, you will be modifying the container permissions to Microsoft Entra
    
 3. Select the **Storage account** named **datalakexxxxxxx**  
 
-    ![Storage account](./images/synapse-lab3-1.png) 
+    ![Storage account](./images/synapse-lab3-1.1.png) 
    
 4. Within the **datalakexxxxxx** page, from the left navigation pane expand **Data storage (1)** and select **Container (2)** then click **files (3)** folder.
 
