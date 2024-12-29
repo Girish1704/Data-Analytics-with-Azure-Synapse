@@ -81,11 +81,13 @@ In this task, you will be modifying the container permissions to Microsoft Entra
 1. After the deployment script has completed, in the Azure portal, go to the **analyticsxxxxx** resource group that is created, and notice that this resource group contains your Synapse workspace, a Storage account for your data lake, and an Apache Spark pool.
 
 
-    ![Azure portal with a cloud shell pane](./images/DA-image70.png)
+    ![Azure portal with a cloud shell pane](./images/DA-image70.png) 
    
-3. Select the **Storage account** named **datalakexxxxxxx** 
+3. Select the **Storage account** named **datalakexxxxxxx**  
+
+    ![Storage account](./images/synapse-lab3-1.png) 
    
-4. Within the **datalakexxxxxx** page, from the left navigation pane expand **Data storage** and select **Container** then click **files** folder.
+4. Within the **datalakexxxxxx** page, from the left navigation pane expand **Data storage (1)** and select **Container (2)** then click **files (3)** folder.
 
     ![Azure portal with a cloud shell pane](./images/DA-image71.png)
 
@@ -111,7 +113,7 @@ In this task, you will be creating a lake database with the RetailDB and modify 
 
       ![Azure portal with a cloud shell pane](./images/DA-image(9).png)
 
-1. On the **Data** **(1)** page, view the **Linked** **(2)** tab and verify that your workspace includes a link to your **Azure Data Lake Storage Gen2** storage account.
+1. On the **Data** **(1)** page, view the **Linked** **(2)** tab and verify that your workspace includes a link to your **Azure Data Lake Storage Gen2 (3)** storage account.
 
     ![Azure portal with a cloud shell pane](./images/DA-image74.png)
 
@@ -123,7 +125,7 @@ In this task, you will be creating a lake database with the RetailDB and modify 
 
    ![Azure portal with a cloud shell pane](./images/DA-image76.png)
 
-1. In the **Properties** pane for the new database, change the **Name** to **RetailDB** and verify that the **Input folder** property is automatically updated to **files/RetailDB**. Leave the **Data format** as **Delimited Text** (you could also use *Parquet* format, and you can override the file format for individual tables - we'll use comma-delimited data in this exercise.)
+1. In the **Properties** pane for the new database, change the **Name** to **RetailDB (1)** and verify that the **Input folder** property is automatically updated to **files/RetailDB (2)**. Leave the **Data format** as **Delimited Text (3)** (you could also use *Parquet* format, and you can override the file format for individual tables - we'll use comma-delimited data in this exercise.)
 
    ![Azure portal with a cloud shell pane](./images/DA-image77.png)
 
@@ -137,7 +139,7 @@ In this task, you will be creating a lake database with the RetailDB and modify 
 
    ![Azure portal with a cloud shell pane](./images/DA-image79.png)
 
-1. In the **files** tab that has opened, select **New folder** button to create a new folder named **RetailDB** - this will be the input folder for the data files used by tables in your database.
+1. In the **files (1)** tab that has opened, select **New folder (2)** button to **Create (4)** a new folder named **RetailDB (3)** - this will be the input folder for the data files used by tables in your database.
 
     ![Azure portal with a cloud shell pane](./images/DA-image80.png)
 
@@ -147,27 +149,27 @@ Now that you have created a lake database, you can define its schema by creating
 
 ### Task 4.1: Define the table schema
 
-1. Switch back to the **RetailDB** tab for your database definition, and in the **+ Table** list, select **Custom**, and note that a new table named **Table_1** is added to your database.
+1. Switch back to the **RetailDB (1)** tab for your database definition, and in the **+ Table (2)** list, select **Custom (3)**, and note that a new table named **Table_1** is added to your database.
       ![Azure portal with a cloud shell pane](./images/DA-image81.png)
 
-2. With **Table_1** selected, in the **General** tab under the database design canvas, change the **Name** property to **Customer**.
+2. With **Table_1** selected, in the **General (1)** tab under the database design canvas, change the **Name** property to **Customer (2)**.
 
     ![Azure portal with a cloud shell pane](./images/DA-image82.png)
 
 
-3. Scroll down in the **General** tab, expand the **Storage settings for table** section and note that the table will be stored as delimited text in the **files/RetailDB/Customer** folder in the default data lake store for your Synapse workspace.
+3. Scroll down in the **General** tab, expand the **Storage settings for table (1)** section and note that the table will be stored as delimited text in the **files/RetailDB/Customer (2)** folder in the default data lake store for your Synapse workspace.
 
     ![Azure portal with a cloud shell pane](./images/DA-image83.png)
 
 5. On the **Columns** tab, note that by default, the table contains one column named **Column_1**. Edit the column definition to match the following properties:
 
-     - Name CustomerId
+     - Name : CustomerId
 
-     - Key  select **PK**
+     - Key : select **PK**
 
-    - Description **Unique customer ID**
+    - Description : **Unique customer ID**
 
-     - Data type **12l Long**
+     - Data type : **12l Long**
 
        ![Change to Azure AD user account](./images/DP-203(4-1).png)
 
@@ -175,11 +177,11 @@ Now that you have created a lake database, you can define its schema by creating
 
      ![Azure portal with a cloud shell pane](./images/DA-image84.png)
 
-     Name **FirstName**
+     Name : **FirstName**
 
-     Description **Customer first name**
+     Description : **Customer first name**
 
-     Data type **abc String**
+     Data type : **abc String**
 
      ![Change to Azure AD user account](./images/DP-203(4-2).png)
 
@@ -196,21 +198,25 @@ Now that you have created a lake database, you can define its schema by creating
 
 6. When you've added all of the columns, **publish** the database again to save the changes.
 
-7. In the **Data** pane on the left, switch back to the **Workspace** tab so you can see the **RetailDB** lake database. Then expand it and refresh its **Tables** folder to see the newly created **Customer** table.
+7. In the **Data (1)** pane on the left, switch back to the **Workspace (2)** tab so you can see the **RetailDB** lake database. Then expand it and refresh its **Tables** folder to see the newly created **Customer (3)** table.
 
       ![Azure portal with a cloud shell pane](./images/DA-image85.png)
 
 ### Task 4.2: Load data into the table's storage path
 
-1. In the main pane, switch back to the **files** tab, which contains the file system with the **RetailDB** folder. Then open the **RetailDB** folder and create a new folder named **Customer** in it. This is where the **Customer** table will get its data.
+1. In the main pane, switch back to the **files (1)** tab, which contains the file system with the **RetailDB** folder. Then open the **RetailDB** folder and create a **New folder (2)** named **Customer (3)** in it. This is where the **Customer** table will get its data. 
+
+    ![New folder](./images/synapse-lab3-2.png) 
 
 2. Open the new **Customer** folder, which should be empty.
 
-3. Download the **customer.csv** data file from https://github.com/CloudLabsAI-Azure/Data-Analytics-with-Azure-Synapse/blob/main/Allfiles/labs/04/data/customer.csv and save it in a folder on your local computer (it doesn't matter where). Then in the **Customer** folder in Synapse Explorer, use the **&#10514; Upload** button to upload the **customer.csv** file to the **RetailDB/Customer** folder in your data lake.
+3. Download the **customer.csv** data file from https://github.com/CloudLabsAI-Azure/Data-Analytics-with-Azure-Synapse/blob/main/Allfiles/labs/04/data/customer.csv and save it in a folder on your local computer (it doesn't matter where). Then in the **Customer** folder in Synapse Explorer, use the **&#10514; Upload (1)** button to upload the **customer.csv (2)** file to the **RetailDB/Customer** folder in your data lake. After selecting the file, click on **Upload (3)** to complete the process.
+
+    ![New folder](./images/synapse-lab3-3.png)
 
     > **Note**: In a real production scenario, you would probably create a pipeline to ingest data into the folder for the table data. We're uploading it directly in the Synapse Studio user interface in this exercise for expediency.
 
-3. In the **Data** pane on the left, on the **Workspace** tab, in the **...** menu for the **Customer** table, select **New SQL script** > **Select TOP 100 rows**. Then, in the new **SQL script 1** pane that has opened, ensure that the **Built-in** SQL pool is connected, and use the **&#9655; Run** button to run the SQL code. The results should include first 100 rows from the **Customer** table, based on the data stored in the underlying folder in the data lake.
+3. In the **Data** pane on the left, on the **Workspace** tab, in the **...** menu for the **Customer** table, select **New SQL script** > **Select TOP 100 rows**. Then, in the new **SQL script 1** pane that has opened, ensure that the **Built-in (1)** SQL pool is connected, and use the **&#9655; Run (2)** button to run the SQL code. The results should include first 100 rows from the **Customer** table, based on the data stored in the underlying folder in the data lake.
 
     ![Azure portal with a cloud shell pane](./images/DA-image89.png)
 
@@ -224,13 +230,25 @@ In this task, you will define a schema for the table RetailDB and load the data 
 
 ### Task 5.1: Define the table schema
 
-1. In the main pane, switch back to the **RetailDB** pane, which contains your database schema (currently containing only the **Customer** table).
+1. In the main pane, switch back to the **RetailDB** pane, which contains your database schema (currently containing only the **Customer** table). 
 
-2. In the **+ Table** menu, select **From template**. Then in the **Add from template** page, select **Retail** and click **Continue**.
+    ![Switch tab](./images/synapse-lab3-5.png)
 
-3. In the **Add from template (Retail)** page, wait for the table list to populate, and then expand **Product** and select **RetailProduct**. Then click **Add**. This adds a new table based on the **RetailProduct** template to your database.
+2. In the **+ Table (1)** menu, select **From template (2)**. 
 
-4. In the **RetailDB** pane, select the new **RetailProduct** table. Then, in the pane beneath the design canvas, on the **General** tab, change the name to **Product** and verify that the storage settings for the table specify the input folder **files/RetailDB/Product**.
+    ![New folder](./images/synapse-lab3-6.png) 
+
+1. Then in the **Add from template** page, select **Retail (1)** and click **Continue (2)**.  
+
+    ![New folder](./images/synapse-lab3-7.png)
+
+3. In the **Add from template (Retail)** page, wait for the table list to populate, and then expand **Product** and select **RetailProduct (1)**. Then click **Add (2)**. This adds a new table based on the **RetailProduct** template to your database. 
+
+    ![New folder](./images/synapse-lab3-8.png)
+
+4. In the **RetailDB** pane, select the new **RetailProduct (1)** table. Then, in the pane beneath the design canvas, on the **General** tab, change the name to **Product (2)** and verify that the storage settings for the table specify the input folder **files/RetailDB/Product**. 
+
+    ![New folder](./images/Synapse-lab3-9.png)
 
 5. On the **Columns** tab for the **Product** table, note that the table already includes a large number of columns inherited from the template. There are more columns than required for this table, so you'll need to remove some.
 
@@ -251,19 +269,27 @@ In this task, you will define a schema for the table RetailDB and load the data 
 
 9. When you've modified the columns as shown above, publish the database again to save the changes.
 
-10. In the **Data** pane on the left, switch back to the **Workspace** tab so you can see the **RetailDB** lake database. Then use the **...** menu for its **Tables** folder to refresh the view and see the newly created **Product** table.
+10. In the **Data** pane on the left, switch back to the **Workspace** tab so you can see the **RetailDB** lake database. Then use the **...** menu for its **Tables** folder to refresh the view and see the newly created **Product** table. 
+
+    ![New folder](./images/synapse-lab3-10.png)
 
 ### Task 5.2: Load data into the table's storage path
 
 1. In the main pane, switch back to the **files** tab, which contains the file system, and navigate to the **files/RetailDB** folder, which currently contains the **Customer** folder for the table you created previously.
 
-2. In the **RetailDB** folder, create a new folder named **Product**. This is where the **Product** table will get its data.
+2. In the **RetailDB** folder, create a new folder named **Product**. This is where the **Product** table will get its data. 
+
+    ![New folder](./images/synapse-lab3-11.png)
 
 3. Open the new **Product** folder, which should be empty.
 
-4. Download the **product.csv** data file from https://github.com/CloudLabsAI-Azure/Data-Analytics-with-Azure-Synapse/blob/main/Allfiles/labs/04/data/product.csv and save it in a folder on your local computer (it doesn't matter where). Then in the **Product** folder in Synapse Explorer, use the **&#10514; Upload** button to upload the **product.csv** file to the **RetailDB/Product** folder in your data lake.
+4. Download the **product.csv** data file from https://github.com/CloudLabsAI-Azure/Data-Analytics-with-Azure-Synapse/blob/main/Allfiles/labs/04/data/product.csv and save it in a folder on your local computer (it doesn't matter where). Then in the **Product** folder in Synapse Explorer, use the **&#10514; Upload** button to upload the **product.csv** file to the **RetailDB/Product** folder in your data lake. 
 
-5. In the **Data** pane on the left, on the **Workspace** tab, in the **...** menu for the **Product** table, select **New SQL script** > **Select TOP 100 rows**. Then, in the new **SQL script 1** pane that has opened, ensure that the **Built-in** SQL pool is connected, and use the **&#9655; Run** button to run the SQL code. The results should include first 100 rows from the **Product** table, based on the data stored in the underlying folder in the data lake.
+    ![New folder](./images/synapse-lab3-12.png)
+
+5. In the **Data** pane on the left, on the **Workspace** tab, in the **...** menu for the **Product** table, select **New SQL script** > **Select TOP 100 rows**. Then, in the new **SQL script 1** pane that has opened, ensure that the **Built-in** SQL pool is connected, and use the **&#9655; Run** button to run the SQL code. The results should include first 100 rows from the **Product** table, based on the data stored in the underlying folder in the data lake. 
+
+    ![New folder](./images/synapse-lab3-13.png)
 
 6. Close the **SQL script 1** tab, discarding your changes.
 
@@ -275,30 +301,43 @@ In this task, you will use an existing data which is already present and create 
 
 ### Task 6.1: Upload data
 
-1. In the main pane, switch back to the **files** tab, which contains the file system, and navigate to the **files/RetailDB** folder, which currently contains the **Customer** and **Product** folders for the tables you created previously.
+1. In the main pane, switch back to the **files** tab, which contains the file system, and navigate to the **files/RetailDB** folder, which currently contains the **Customer** and **Product** folders for the tables you created previously. 
+
+    ![New folder](./images/synapse-lab3-14.png)
 
 2. In the **RetailDB** folder, create a new folder named **SalesOrder**.
 
 3. Open the new **SalesOrder** folder, which should be empty.
 
-4. Download the **salesorder.csv** data file from https://github.com/CloudLabsAI-Azure/Data-Analytics-with-Azure-Synapse/blob/main/Allfiles/labs/04/data/salesorder.csv and save it in a folder on your local computer (it doesn't matter where). Then in the **SalesOrder** folder in Synapse Explorer, use the **&#10514; Upload** button to upload the **salesorder.csv** file to the **RetailDB/SalesOrder** folder in your data lake.
+4. Download the **salesorder.csv** data file from https://github.com/CloudLabsAI-Azure/Data-Analytics-with-Azure-Synapse/blob/main/Allfiles/labs/04/data/salesorder.csv and save it in a folder on your local computer (it doesn't matter where). Then in the **SalesOrder** folder in Synapse Explorer, use the **&#10514; Upload** button to upload the **salesorder.csv** file to the **RetailDB/SalesOrder** folder in your data lake. 
+
+    ![New folder](./images/synapse-lab3-15.png)
 
 ### Task 6.2: Create a table
 
 In this task, you will create a table SalesOrder from data lake and verify it. 
 
 1. In the main pane, switch back to the **RetailDB** pane, which contains your database schema (currently containing the **Customer** and **Product** tables).
-2. In the **+ Table** menu, select **From data lake**. Then in the **Create external table from data lake** pane, specify the following options:
-    - **External table name**: SalesOrder
-    - **Linked service**: Select **synapse*xxxxxxx*-WorkspaceDefautStorage(datalake*xxxxxxx*)**
-    - **Input file of folder**: files/RetailDB/SalesOrder
-3. Continue to the next page and then create the table with the following options:
-    - **File type**: CSV
-    - **Field terminator**: Default (comma ,)
-    - **First row**: Leave *infer column names* <u>un</u>selected.
-    - **String delimiter**: Default (Empty string)
-    - **Use default type**: Default type (true,false)
-    - **Max string length**: 4000
+2. In the **+ Table (1)** menu, select **From data lake (2)**. 
+
+     ![New folder](./images/synapse-lab3-16.png)
+
+1. Then in the **Create external table from data lake** pane, specify the following options:
+    - **External table name (1)**: SalesOrder
+    - **Linked service (2)**: Select **synapse*xxxxxxx*-WorkspaceDefautStorage(datalake*xxxxxxx*)**
+    - **Input file of folder (3)**: files/RetailDB/SalesOrder 
+
+        ![New folder](./images/synapse-lab3-16.1.png)
+
+3. Continue to the next page and then **Create (7)** the table with the following options:
+    - **File type (1)**: CSV
+    - **Field terminator (2)**: Default (comma ,)
+    - **First row (3)**: Leave *infer column names* <u>un</u>selected.
+    - **String delimiter (4)**: Default (Empty string)
+    - **Use default type (5)**: Default type (true,false)
+    - **Max string length (6)**: 4000 
+
+      ![New folder](./images/synapse-lab3-17.png)
 
 4. When the table has been created, note that it includes columns named **C1**, **C2**, and so on and that the data types have been inferred from the data in the folder. Modify the column definitions as follows:
 
@@ -317,7 +356,9 @@ In this task, you will create a table SalesOrder from data lake and verify it.
 
 7. Publish the database again to save the changes.
 
-8. In the **Data** pane on the left, switch back to the **Workspace** tab so you can see the **RetailDB** lake database. Then use the **...** menu for its **Tables** folder to refresh the view and see the newly created **SalesOrder** table.
+8. In the **Data** pane on the left, switch back to the **Workspace** tab so you can see the **RetailDB** lake database. Then use the **...** menu for its **Tables** folder to refresh the view and see the newly created **SalesOrder** table. 
+
+     ![New folder](./images/synapse-lab3-18.png)
 
 ## Task 7: Work with lake database tables
 
@@ -329,18 +370,21 @@ In this task, you will be querying these tables using SQL scripts and also you w
 
 1. In Synapse Studio, select the **Develop** page.
 
-2. In the **Develop** pane, in the **+** menu, select **SQL script**.
+2. In the **Develop** pane, in the **+ (1)** menu, select **SQL script (2)**. 
 
-3. In the new **SQL script 1** pane, ensure the script is connected to the **Built-in** SQL pool and in the **User database** list, select **RetailDB**.
+     ![New folder](./images/synapse-lab3-19.png)
 
-4. Enter the following SQL code:
+3. In the new **SQL script 1** pane, ensure the script is connected to the **Built-in (1)** SQL pool and in the **User database** list, select **RetailDB (2)**. 
+
+4. Enter the following SQL code **(3)**:
 
     ```sql
     SELECT o.SalesOrderID, c.EmailAddress, p.ProductName, o.Quantity
     FROM SalesOrder AS o
     JOIN Customer AS c ON o.CustomerId = c.CustomerId
     JOIN Product AS p ON o.ProductId = p.ProductId
-    ```
+    ``` 
+    ![New folder](./images/synapse-lab3-20.png)
 
 5. Use the **&#9655; Run** button to run the SQL code.
 
@@ -352,9 +396,13 @@ In this task, you will be querying these tables using SQL scripts and also you w
 
 In this task, you will be inserting data in to the table using notebook attached to the Spark.
 
-1. In the **Develop** pane, in the **+** menu, select **Notebook**.
+1. In the **Develop** pane, in the **+ (1)** menu, select **Notebook (2)**. 
 
-2. In the new **Notebook 1** pane, select the dropdown beside **Attach to** and select **spark*xxxxxxx**** Spark pool.
+    ![New folder](./images/synapse-lab3-22.png)
+
+2. In the new **Notebook 1** pane, select the dropdown beside **Attach to** and select **spark*xxxxxxx*** Spark pool. 
+
+    ![New folder](./images/synapse-lab3-23.png)
 
     >**Note** : In case in **Attach to** **spark*xxxxxxx**** Spark pool is not represent kindly click on **Manage pools** then on **Apache Spark pool** page click on **+ New**. In Apache Spark pool name field provide name spark<inject key="DeploymentID" enableCopy="false"/> once deployment is complete select spark<inject key="DeploymentID" enableCopy="false"/> as mention in above step.
     
