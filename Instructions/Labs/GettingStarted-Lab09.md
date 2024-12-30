@@ -4,8 +4,6 @@
 
 ## Overview  
 
-**Overview**
-
 Azure Synapse Analytics is an integrated analytics service that combines big data and data warehousing capabilities, enabling efficient data integration, exploration, and analysis. It provides powerful tools for data ingestion, transformation, and querying at scale.
 
 In this hands-on lab, you will learn how to load data into a dedicated SQL pool in Azure Synapse Analytics. You will provision a Synapse workspace, prepare data from Azure Data Lake Storage, and use SQL techniques like COPY and CTAS to load and optimize data. Additionally, you'll handle slowly changing dimensions and perform post-load optimizations to ensure efficient query performance and data integrity.
