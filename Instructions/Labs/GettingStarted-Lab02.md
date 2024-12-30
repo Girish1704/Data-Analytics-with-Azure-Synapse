@@ -129,3 +129,5 @@ Now, click on **Next** from the lower right corner to move on to the next page.
   ![Start Your Azure Journey](../Labs/images/sc900-image(3).png)
 
 ### Happy Learning!!
+
+>>>>>>> b367352b1451d6cc2394d6f753018108493fc035

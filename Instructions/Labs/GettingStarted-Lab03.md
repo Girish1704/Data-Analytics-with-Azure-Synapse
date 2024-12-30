@@ -1,6 +1,6 @@
 # Cloud Scale Analytics with Microsoft Fabric
 
-### Overall Estimated Duration : **30 Minutes**
+### Overall Estimated Duration : **2 hours**
 
 ## Overview
 Azure Synapse Analytics unifies the scalability of data lakes with the querying power of relational databases, enabling efficient data management and analytics. This hands-on lab will guide you in provisioning a Synapse workspace, managing permissions, creating lake databases, and defining tables using templates or existing data. You'll also work with SQL scripts and Spark notebooks for querying, inserting, and transforming data. With integrated Spark pools, Synapse supports seamless ETL and ELT operations on large datasets, preparing you to handle complex data workflows and real-world analytics tasks efficiently.
