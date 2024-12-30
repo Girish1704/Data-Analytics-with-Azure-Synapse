@@ -21,11 +21,7 @@ Participants should have:
 - **Understanding of Data Warehousing Concepts**: Awareness of data warehousing principles, including structured data storage, indexing, and querying for optimized performance.  
 
 ## Architecture 
-The lab architecture follows a structured flow designed to guide participants through key components and functionalities of **Azure Synapse Analytics**. The process begins with **creating and provisioning an Azure Synapse Analytics workspace**, providing a central hub for managing data and analytics workloads. Participants then explore **Synapse Studio**, an integrated interface for performing data engineering, data science, and analytics tasks.  
-
-Next, **data ingestion pipelines** are created to move and transform data, ensuring datasets are properly prepared for analysis. The lab utilizes **Serverless SQL Pools** for on-demand querying of data stored in data lakes, enabling efficient, pay-per-query analysis. In parallel, **Spark Pools** are used for distributed data processing and advanced analytics on large datasets.  
-
-Finally, **Dedicated SQL Pools** enable structured data warehousing, optimized for performance and scalability, allowing participants to query and analyze large datasets efficiently. This architecture flow ensures a hands-on experience with key Azure Synapse Analytics components, highlighting end-to-end data workflows from ingestion to analysis and reporting.  
+The lab architecture follows a structured flow designed to guide participants through key components and functionalities of **Azure Synapse Analytics**. The process begins with **creating and provisioning an Azure Synapse Analytics workspace**, providing a central hub for managing data and analytics workloads. Participants then explore **Synapse Studio**, an integrated interface for performing data engineering, data science, and analytics tasks. **data ingestion pipelines** are created to move and transform data, ensuring datasets are properly prepared for analysis. The lab utilizes **Serverless SQL Pools** for on-demand querying of data stored in data lakes, enabling efficient, pay-per-query analysis. In parallel, **Spark Pools** are used for distributed data processing and advanced analytics on large datasets.**Dedicated SQL Pools** enable structured data warehousing, optimized for performance and scalability, allowing participants to query and analyze large datasets efficiently.
 
 ## Architecture Diagram
 
