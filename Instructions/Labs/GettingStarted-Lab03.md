@@ -9,6 +9,7 @@ Azure Synapse Analytics unifies the scalability of data lakes with the querying 
 Learn to provision and configure an Azure Synapse Analytics workspace with integrated Spark pool capabilities, create and manage lake databases, and utilize Spark notebooks to perform ETL and ELT operations, enabling efficient data transformation, management, and analysis within a unified Synapse environment. 
 
 **Analyze data in a lake database:** Participants will learn to provision an Azure Synapse Analytics workspace and configure it to support lake databases. The lab will guide them through modifying container permissions to ensure secure access to data. Participants will create a lake database in Synapse Studio, applying a structured relational schema on top of data stored in a data lake. Additionally, they will gain hands-on experience creating tables from both templates and existing data. By working with lake database tables using SQL and Spark, participants will gain the skills needed to effectively manage and analyze data in a lake database environment.
+
 **Transform data using Spark in Synapse Analytics:** Learn to provision and configure an Azure Synapse Analytics workspace with integrated Spark pool capabilities, enabling seamless data transformation workflows. Gain hands-on experience in setting up the workspace, ensuring proper access control, and leveraging Spark notebooks to perform ETL (Extract, Transform, Load) and ELT (Extract, Load, Transform) operations on large datasets. Explore the process of importing and running Spark notebooks, configuring storage access permissions, and executing transformation tasks to prepare data for downstream analytics. This lab equips participants with the foundational skills required to handle data engineering tasks efficiently within the Azure Synapse Analytics environment.
 
 ## Prerequisites
@@ -26,12 +27,11 @@ Participants should have:
 
 ## Architecture
 
-### Architecture Flow  
-
 The architecture starts with provisioning an Azure Synapse Analytics workspace, enabling big data analytics and data warehousing. Secure access is granted to the storage container, followed by the creation of a lake database to efficiently manage structured data. Users can create tables either manually, using templates, or from existing data.  For advanced data transformations, Spark pools are integrated into the workspace. Using Spark notebooks, users perform ETL/ELT processes to convert raw data into structured formats, supporting efficient and scalable data transformation pipelines. This setup combines data management with powerful transformation capabilities within Azure Synapse Analytics.
+
 ## Architecture Diagram 
 
-![Navigate-To-AAD](./Images/ws/lab_01.png)
+![Navigate-To-AAD](./images/Lab04.png)
 
 ## Explanation of Components
 
