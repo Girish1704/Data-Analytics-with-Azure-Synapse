@@ -38,34 +38,20 @@ The architecture leverages Azure Synapse Analytics to create an efficient enviro
 
 ## Explanation of Components
 
-### Lab 02 Components:
+### **Lab 02 Components:**
 
-- **Azure Synapse Analytics Workspace**  
-  The workspace serves as a unified platform to query, analyze, and visualize data, leveraging its serverless SQL capabilities.
+- **Azure Synapse Analytics Workspace:** A central hub for managing data queries, analysis, and visualization, enabling seamless interaction with both internal and external data sources.
+- **Serverless SQL Pool:** A scalable query engine that allows running SQL queries directly on data files in Azure Data Lake, without requiring the provisioning of dedicated infrastructure.
+- **Data Lake or External Storage:** A repository, often Azure Data Lake, where large datasets such as CSV, JSON, or Parquet files are stored and accessed for querying and analysis.
+- **Visualization Tools:** Integrated tools within Synapse Studio or external platforms like Power BI to visualize query results, facilitating the creation of interactive reports and dashboards for business insights.
 
-- **Serverless SQL Pool**  
-  A distributed query engine that allows querying data stored in external storage like Azure Data Lake. It doesn’t require prior provisioning of infrastructure.
+### **Lab 03 Components:**
 
-- **Data Lake or External Storage**  
-  The external data source, often Azure Data Lake Storage, where the files to be queried are stored.
+- **Azure Synapse Analytics Workspace:** A unified environment for data transformation, querying, and analysis, where users can manage both structured and unstructured data workflows.
+- **CETAS (Create External Table As Select):** A SQL statement used to transform data and store the results as external tables in the data lake, enabling efficient data reuse and further analysis.
+- **Azure Data Lake Storage:** A scalable storage solution that holds both raw and transformed data. In this lab, transformed datasets are stored as external tables in the data lake for easy access.
+- **Stored Procedures:** Reusable SQL scripts that encapsulate data transformation logic, automating and standardizing the transformation process for consistent execution across multiple workflows.
 
-- **Visualization Tools**  
-  Tools within Synapse Studio or external platforms like Power BI to create visual dashboards and reports from query results.
-
-### Lab 03 Components:
-
-- **Azure Synapse Analytics Workspace**  
-  Similar to Lab 02, this serves as the foundation for data management and analytics tasks.
-
-- **CETAS (Create External Table As Select)**  
-  A statement used to transform query results into external tables. These are stored in the data lake for efficient reuse.
-
-- **Azure Data Lake Storage**  
-  The storage service where the transformed and structured datasets are written and stored.
-
-- **Stored Procedures**  
-  Encapsulate transformation logic into reusable procedures, ensuring consistent execution of data manipulation tasks.
-  
 ## Getting Started with the Lab 
 
 Once you're ready to dive in, your virtual machine and lab guide will be right at your fingertips within your web browser.
