@@ -1,4 +1,4 @@
-# Cloud Scale Analytics with Microsoft Fabric
+# Data Analytics with Azure Synapse 
 
 ### Overall Estimated Duration : **120 minutes**
 
