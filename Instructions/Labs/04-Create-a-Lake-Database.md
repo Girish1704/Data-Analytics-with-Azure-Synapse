@@ -16,12 +16,6 @@ After completing this lab, you will be able to:
 + Task 6: Create a table from existing data.
 + Task 7: Work with lake database tables.
 
-### Estimated timing: 90 minutes
-
-### Architecture Diagram
-
-   ![Azure portal with a cloud shell pane](./Lab-Scenario-Preview/media/lab4.png)
-
 ## Task 1: Provision an Azure Synapse Analytics workspace
 
 To support a lake database, you need an Azure Synapse Analytics workspace with access to data lake storage. There is no need for a dedicated SQL pool, since you can define the lake database using the built-in serverless SQL pool. Optionally, you can also use a Spark pool to work with data in the lake database.

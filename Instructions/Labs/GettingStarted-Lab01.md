@@ -29,6 +29,7 @@ The lab architecture follows a structured flow designed to guide participants th
 
 ## Explanation of Components
 
+The architecture for this lab involves the following key components: 
 - **Azure Synapse Analytics Workspace:** Acts as the central environment for managing and organizing resources, data pipelines, and analytical workloads.  
 
 - **Synapse Studio:** A unified platform for data integration, data exploration, and advanced analytics, providing tools for SQL, Spark, and data pipelines.  

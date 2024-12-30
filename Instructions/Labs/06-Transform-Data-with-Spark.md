@@ -11,13 +11,6 @@ After completing this lab, you will be able to:
 + Task 1: Provision an Azure Synapse Analytics workspace.
 + Task 2: Use a Spark notebook to transform data.
 
-
-### Estimated timing: 30 minutes
-
-### Architecture Diagram
-
-   ![Azure portal with a cloud shell pane](./Lab-Scenario-Preview/media/lab6.png)
-
 ## Task 1: Provision an Azure Synapse Analytics workspace
 
 In this task, you'll use a Spark notebook in Azure Synapse Analytics to transform data in files.

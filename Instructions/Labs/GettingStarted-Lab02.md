@@ -16,7 +16,9 @@ Learn to leverage Azure Synapse Analytics and its serverless SQL pool to query a
 
 **Transform Files Using a Serverless SQL Pool**: Learn how to transform data using serverless SQL pools by applying CREATE EXTERNAL TABLE AS SELECT (CETAS) statements to process and store transformed data. You will also encapsulate data transformations into stored procedures to automate and optimize your workflows. This will help streamline data processing and improve the efficiency of your data management tasks. 
 
-## Prerequisites
+## Prerequisites 
+
+Participants should have:
 - **Basic Knowledge of Microsoft Azure**: Familiarity with the Azure portal and experience in provisioning cloud resources, such as workspaces, storage accounts, and resource groups, to set up the necessary environment for data analytics.
   
 - **Understanding of Azure Synapse Analytics**: Familiarity with the core components of Azure Synapse Analytics, including its workspace, serverless SQL pool, and integration with Azure Data Lake for querying and managing data.
@@ -30,7 +32,7 @@ Learn to leverage Azure Synapse Analytics and its serverless SQL pool to query a
 - **Understanding of Data Visualization**: Basic knowledge of visualizing query results and creating reports using charting tools, particularly within the Synapse Studio environment.
 
 ## Architecture
-The architecture leverages Azure Synapse Analytics to create an efficient environment for querying, transforming, and analyzing data using serverless SQL pools. The first lab focuses on setting up a Synapse Analytics workspace, querying external data stored in services like Azure Data Lake, and visualizing query results to derive insights. This ensures a smooth transition from data storage to analysis. The second lab builds on this by adding advanced transformation capabilities. It begins with workspace provisioning and data querying, followed by using CETAS statements to structure datasets efficiently. Finally, transformation logic is encapsulated in stored procedures to automate workflows and enhance data processing. This approach streamlines the process from raw data querying to reusable and structured transformations.
+The architecture leverages Azure Synapse Analytics to create an efficient environment for querying, transforming, and analyzing data using serverless SQL pools. The second lab focuses on setting up a Synapse Analytics workspace, querying external data stored in services like Azure Data Lake, and visualizing query results to derive insights. This ensures a smooth transition from data storage to analysis. The third lab builds on this by adding advanced transformation capabilities. It begins with workspace provisioning and data querying, followed by using CETAS statements to structure datasets efficiently. Finally, transformation logic is encapsulated in stored procedures to automate workflows and enhance data processing. This approach streamlines the process from raw data querying to reusable and structured transformations.
 
 ## Architecture Diagram
 
@@ -129,5 +131,3 @@ Now, click on **Next** from the lower right corner to move on to the next page.
   ![Start Your Azure Journey](../Labs/images/sc900-image(3).png)
 
 ### Happy Learning!!
-
->>>>>>> b367352b1451d6cc2394d6f753018108493fc035

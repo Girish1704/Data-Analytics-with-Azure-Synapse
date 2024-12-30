@@ -14,12 +14,6 @@ After completing this lab, you will be able to:
 + Task 4: Use delta tables for streaming data.
 + Task 5: Query a delta table from a serverless SQL pool.
 
-### Estimated timing: 90 minutes
-
-### Architecture Diagram
-
-   ![Azure portal with a cloud shell pane](./Lab-Scenario-Preview/media/lab7.png)
-
 ## Task 1: Provision an Azure Synapse Analytics workspace
 
 You'll need an Azure Synapse Analytics workspace with access to data lake storage and an Apache Spark pool that you can use to query and process files in the data lake.
