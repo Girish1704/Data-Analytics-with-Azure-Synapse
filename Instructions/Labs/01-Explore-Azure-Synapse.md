@@ -14,13 +14,7 @@ After completing this lab, you will be able to:
 + Task 4: Analyze data using a serverless SQL pool.
 + Task 5: Analyze data using the Spark pool.
 + Task 6: Query a data warehouse using a dedicated SQL pool.
-
-### Estimated timing: 60 minutes
-
-## Architecture Diagram
-
-   ![Azure portal with a cloud shell pane](./Lab-Scenario-Preview/media/lab1.png)
-
+  
 ## Task 1: Provision an Azure Synapse Analytics workspace
 
 An Azure *Synapse Analytics workspace* provides a central point for managing data and data processing runtimes. You can provision a workspace using the interactive interface in the Azure portal, or you can deploy a workspace and resources within it by using a script or template. In most production scenarios, it's best to automate provisioning with scripts and templates so that you can incorporate resource deployment into a repeatable development and operations (*DevOps*) process.
