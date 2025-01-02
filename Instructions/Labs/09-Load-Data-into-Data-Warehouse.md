@@ -13,13 +13,6 @@ After completing this lab, you will be able to:
 + Task 3: Load data warehouse tables.
 + Task 4: Perform post-load optimization.
 
-
-### Estimated timing: 120 minutes
-
-### Architecture Diagram
-
-   ![Azure portal with a cloud shell pane](./Lab-Scenario-Preview/media/lab9.png)
-
 ## Task 1: Provision an Azure Synapse Analytics workspace
 
 You'll need an Azure Synapse Analytics workspace with access to data lake storage and a dedicated SQL pool hosting a data warehouse.

@@ -11,13 +11,6 @@ After completing this lab, you will be able to:
 + Task 1: Provision an Azure Synapse Analytics workspace.
 + Task 2: Use a Spark notebook to transform data.
 
-
-### Estimated timing: 30 minutes
-
-### Architecture Diagram
-
-   ![Azure portal with a cloud shell pane](./Lab-Scenario-Preview/media/lab6.png)
-
 ## Task 1: Provision an Azure Synapse Analytics workspace
 
 In this task, you'll use a Spark notebook in Azure Synapse Analytics to transform data in files.
@@ -78,7 +71,9 @@ In this task, you will be downloading a precreated notebook and using the spark 
 
 6. Expand your storage account and verify that it contains a file system container named **files (Primary)**.
 
-7. Select the **files** container, and note that it contains folders named **data** and **synapse**. The synapse folder is used by Azure Synapse, and the **data** folder contains the data files you are going to query.
+7. Select the **files** container, and note that it contains folders named **data** and **synapse**. The synapse folder is used by Azure Synapse, and the **data** folder contains the data files you are going to query. 
+
+    ![](./images/synapse-lab3-24.png)
 
 8. Open the **data** folder and observe that it contains .csv files for three years of sales data.
 

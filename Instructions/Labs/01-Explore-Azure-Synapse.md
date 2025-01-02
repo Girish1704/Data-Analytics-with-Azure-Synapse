@@ -14,13 +14,7 @@ After completing this lab, you will be able to:
 + Task 4: Analyze data using a serverless SQL pool.
 + Task 5: Analyze data using the Spark pool.
 + Task 6: Query a data warehouse using a dedicated SQL pool.
-
-### Estimated timing: 60 minutes
-
-## Architecture Diagram
-
-   ![Azure portal with a cloud shell pane](./Lab-Scenario-Preview/media/lab1.png)
-
+  
 ## Task 1: Provision an Azure Synapse Analytics workspace
 
 An Azure *Synapse Analytics workspace* provides a central point for managing data and data processing runtimes. You can provision a workspace using the interactive interface in the Azure portal, or you can deploy a workspace and resources within it by using a script or template. In most production scenarios, it's best to automate provisioning with scripts and templates so that you can incorporate resource deployment into a repeatable development and operations (*DevOps*) process.
@@ -93,7 +87,9 @@ In this task, we will explore Synapse Studio by navigating through its various p
 
 5. View the **Data** page, and note that there are two tabs containing data sources:
     - A **Workspace** tab containing databases defined in the workspace (including dedicated SQL databases and Data Explorer databases)
-    - A **Linked** tab containing data sources that are linked to the workspace, including Azure Data Lake storage.
+    - A **Linked** tab containing data sources that are linked to the workspace, including Azure Data Lake storage. 
+
+      ![Data page View](./images/synapse-lab1-1.png)
 
 6. View the **Develop** page, which is currently empty. This is where you can define scripts and other assets used to develop data processing solutions.
 
@@ -101,15 +97,15 @@ In this task, we will explore Synapse Studio by navigating through its various p
 
 8. View the **Monitor** page. This is where you can observe data processing jobs as they run and view their history.
 
-9. View the **Manage** page. This is where you manage the pools, runtimes, and other assets used in your Azure Synapse workspace. View each of the tabs in the **Analytics pools** section and note that your workspace includes the following pools:
-    - **SQL pools**:
+9. View the **Manage (1)** page. This is where you manage the pools, runtimes, and other assets used in your Azure Synapse workspace. View each of the tabs in the **Analytics pools** section and note that your workspace includes the following pools:
+    - **SQL pools (2)**:
         - **Built-in**: A *serverless* SQL pool that you can use on-demand to explore or process data in a data lake by using SQL commands.
         - **sql*xxxxxxx***: A *dedicated* SQL pool that hosts a relational data warehouse database.
     
            ![Azure portal with a cloud shell pane](./images/DA-image38.png)
     
-    - **Apache Spark pools**:
-        - **spark*xxxxxxx***: that you can use on-demand to explore or process data in a data lake by using programming languages like Scala or Python.
+    - **Apache Spark pools (1)**:
+        - **spark*xxxxxxx (2)***: that you can use on-demand to explore or process data in a data lake by using programming languages like Scala or Python.
 
           ![Azure portal with a cloud shell pane](./images/DA-image39.png)
 
@@ -121,22 +117,22 @@ In this task, we will ingest data into Azure Synapse Analytics by creating a pip
 
 ###  Task 3.1: Use the Copy Data task to create a pipeline
 
-1. In Synapse Studio, on the **Home** page, select **Ingest** to open the **Copy Data** tool
+1. In Synapse Studio, on the **Home (1)** page, select **Ingest (2)** to open the **Copy Data** tool
 
      ![Azure portal with a cloud shell pane](./images/DA-image66.png)
 
-2. In the Copy Data tool, on the **Properties** step, ensure that **Built-in copy task** and **Run once now** are selected, and click **Next >**.
+2. In the Copy Data tool, on the **Properties** step, ensure that **Built-in copy task (1)** and **Run once now (2)** are selected, and click **Next > (3)**.
       ![Azure portal with a cloud shell pane](./images/DA-image67.png)
 
 3. On the **Source** step, in the **Dataset** substep, select the following settings:
-    - **Source type**: All
-    - **Connection**: Select **+ New connection**, and in the **New Connection** pane that appears, on the **Generic protocol** tab, select **HTTP**. Then continue and create a connection to a data file using the following settings and click **Create**:*
-        - **Name**: Products
-        - **Description**: Product list via HTTP
-        - **Connect via integration runtime**: AutoResolveIntegrationRuntime
-        - **Base URL**: `https://raw.githubusercontent.com/CloudLabsAI-Azure/Data-Analytics-with-Azure-Synapse/main/Allfiles/labs/01/adventureworks/products.csv`
-        - **Server Certificate Validation**: Enable
-        - **Authentication type**: Anonymous
+    - **Source type (1)**: All
+    - **Connection**: Select **+ New connection (2)**, and in the **New Connection** pane that appears, on the **Generic protocol (3)** tab, select **HTTP (4)**. Then continue and create a connection to a data file using the following settings and click **Create (12)**:
+        - **Name (6)**: Products
+        - **Description (7)**: Product list via HTTP
+        - **Connect via integration runtime (8)**: AutoResolveIntegrationRuntime
+        - **Base URL (9)**: `https://raw.githubusercontent.com/CloudLabsAI-Azure/Data-Analytics-with-Azure-Synapse/main/Allfiles/labs/01/adventureworks/products.csv`
+        - **Server Certificate Validation (10)**: Enable
+        - **Authentication type (11)**: Anonymous
      
            ![Azure portal with a cloud shell pane](./images/DA-image40.png)
 
@@ -144,7 +140,7 @@ In this task, we will ingest data into Azure Synapse Analytics by creating a pip
 
            ![Azure portal with a cloud shell pane](./images/DA-image42.png)
 
-4. After creating the connection, on the **Source data store** page, ensure the following settings are selected, and then select **Next >**:
+4. After creating the connection, on the **Source data store** page, ensure the following settings are selected **(1)**, and then select **Next > (2)**:
     - **Relative URL**: *Leave blank*
     - **Request method**: GET
     - **Additional headers**: *Leave blank*
@@ -154,80 +150,81 @@ In this task, we will ingest data into Azure Synapse Analytics by creating a pip
 
       ![Azure portal with a cloud shell pane](./images/DA-image43.png)
 
-5. On the **Source** step, in the **Configuration** substep, select **Preview data** to see a preview of the product data your pipeline will ingest, then close the preview.
+5. On the **Source** step, in the **Configuration** substep, select **Preview data** to see a preview of the product data your pipeline will ingest, then close the preview. 
 
-6. After previewing the data, on the **File format settings** page, ensure the following settings are selected, and then select **Next >**:
-    - **File format**: DelimitedText
-    - **Column delimiter**: Comma (,)
-    - **Row delimiter**: Line feed (\n)
-    - **First row as header**: Selected
-    - **Compression type**: *Leave blank*
+   ![Preview data](./images/synpase-lab1-2.png)
+
+6. After previewing the data, on the **File format settings** page, ensure the following settings are selected, and then select **Next > (6)**:
+    - **File format (1)**: DelimitedText 
+    - **Column delimiter (2)**: Comma (,)
+    - **Row delimiter (3)**: Line feed (\n)
+    - **First row as header (4)**: Selected
+    - **Compression type (5)**: *Leave blank*
 
        ![Azure portal with a cloud shell pane](./images/DA-image44.png)
       
 7. On the **Destination** step, in the **Dataset** substep, select the following settings:
-    - **Destination type**: Azure Data Lake Storage Gen 2
-    - **Connection**: *Select the existing connection to your data lake store (this was created for you when you created the workspace).*
+    - **Destination type (1)**: Azure Data Lake Storage Gen 2
+    - **Connection (2)**: *Select the existing connection to your data lake store (this was created for you when you created the workspace).*
 
-8. After selecting the connection, on the **Destination/Dataset** step, ensure the following settings are selected, and then select **Next >**:
-    - **Folder path**: Click on Browse and select files/sales_data 
-    - **File name**: sales.csv
-    - **Copy behavior**: *Leave blank*
-    - **Max concurrent connections**: *Leave blank*
-    - **Block size (MB)**: *Leave blank*
+8. After selecting the connection, on the **Destination/Dataset** step, ensure the following settings are selected, and then select **Next > (9)**:
+    - **Folder path (4)**: Click on **Browse (3)** and select files/sales_data 
+    - **File name (5)**: sales.csv
+    - **Copy behavior (6)**: *Leave blank*
+    - **Max concurrent connections (7)**: *Leave blank*
+    - **Block size (MB) (8)**: *Leave blank*
 
       ![Azure portal with a cloud shell pane](./images/DA-image45.png)
 
-9. On the **Destination** step, in the **Configuration** substep, on the **File format settings** page, ensure that the following properties are selected. Then select **Next >**:
+9. On the **Destination** step, in the **Configuration** substep, on the **File format settings** page, ensure that the following properties are selected. Then select **Next > (8)**:
 
-    - **File format**: DelimitedText
-    - **Column delimiter**: Comma (,)
-    - **Row delimiter**: Line feed (\n)
-    - **Add header to file**: Selected
-    - **Compression type**: *Leave blank*
-    - **Max rows per file**: *Leave blank*
-    - **File name prefix**: *Leave blank*
+    - **File format (1)**: DelimitedText
+    - **Column delimiter (2)**: Comma (,)
+    - **Row delimiter (3)**: Line feed (\n)
+    - **Add header to file (4)**: Selected
+    - **Compression type (5)**: *Leave blank*
+    - **Max rows per file (6)**: *Leave blank*
+    - **File name prefix (7)**: *Leave blank*
 
       ![Azure portal with a cloud shell pane](./images/DA-image46.png)
 
-10. On the **Settings** step, enter the following settings and then click **Next >**:
-    - **Task name**: Copy products
-    - **Task description** Copy products data
-    - **Fault tolerance**: *Leave blank*
+10. On the **Settings** step, enter the following settings and then click **Next > (5)**:
+    - **Task name (1)**: Copy products
+    - **Task description (2)** : Copy products data
+    - **Fault tolerance (3)**: *Leave blank*
     - **Enable logging**: <u>Un</u>selected
-    - **Enable staging**: <u>Un</u>selected
+    - **Enable staging** : <u>Un</u>selected **(4)**
 
       ![Azure portal with a cloud shell pane](./images/DA-image47.png)
 
-11. On the **Review and finish** step, on the **Review** substep, read the summary and then click **Next >**.
+11. On the **Review and finish** step, on the **Review** substep, read the summary and then click **Next >**. 
 
-12. On the **Deployment** step, wait for the pipeline to be deployed and then click **Finish**.
+12. On the **Deployment** step, wait for the pipeline to be deployed and then click **Finish**. 
 
-13. In Synapse Studio, select the **Monitor** page, and in the **Pipeline runs** tab, wait for the **Copy products** pipeline to complete with a status of **Succeeded** (you can use the **&#8635; Refresh** button on the Pipeline runs page to refresh the status).
+    ![Review and finish](./images/synapse-lab1-3.png)
+
+13. In Synapse Studio, select the **Monitor (1)** page, and in the **Pipeline runs** tab, wait for the **Copy products (2)** pipeline to complete with a status of **Succeeded (3)** (you can use the **&#8635; Refresh** button on the Pipeline runs page to refresh the status).
 
      ![Azure portal with a cloud shell pane](./images/DA-image49.png)
 
      ![Azure portal with a cloud shell pane](./images/DA-image50.png)
     
-14. View the **Integrate** page, and verify that it now contains a **pipeline** named **Copy products**.
+14. View the **Integrate (1)** page, and verify that it now contains a **pipeline (2)** named **Copy products (3)**.
 
     ![Azure portal with a cloud shell pane](./images/DA-image48.png)
 
 ### Task 3.2: View the ingested data
 
-1. On the **Data** page, select the **Linked** tab and expand the **Azure Data Lake Storage Gen2** and then expand **synapse*xxxxxxx* (Primary) datalake** container hierarchy until you see the **files** file storage for your Synapse workspace. Then select the file storage to verify that a folder named **sales_data** containing a file named **sales.csv** has been copied to this location, as shown here:
+1. On the **Data (1)** page, select the **Linked** tab and expand the **Azure Data Lake Storage Gen2 (2)** and then expand **synapse*xxxxxxx* (Primary) datalake (3)** container hierarchy until you see the **files (4)** file storage for your Synapse workspace. Then select the file storage to verify that a folder named **sales_data (5)** containing a file named **sales.csv (6)** has been copied to this location, as shown here:
 
     ![Azure portal with a cloud shell pane](./images/DA-image51.png)
 
    ![Azure portal with a cloud shell pane](./images/DA-image52.png)
 
-3. Right-click the **sales.csv** data file and select **Preview** to view the ingested data. Then click on **OK** to exit preview page.
+3. Right-click the **sales.csv (1)** data file and select **Preview (2)** to view the ingested data. Then click on **OK** to exit preview page.
 
      ![Azure portal with a cloud shell pane](./images/DA-image53.png)
 
-     ![Azure portal with a cloud shell pane](./images/DA-image55.png)
-
-   <validation step="839cbf4c-f048-4b81-bb5f-a2d033dc3e26" />
 
  > **Congratulations** on completing the lab! Now, it's time to validate it. Here are the steps:
  > - Hit the Validate button for the corresponding task. If you receive a success message, you have successfully validated the lab. 
@@ -242,7 +239,10 @@ Now that you've ingested some data into your workspace, you can use Synapse Anal
 
 In this task, we will use a serverless SQL pool to query and analyze data stored in Azure Data Lake. We will execute SQL queries to retrieve and aggregate data and visualize the results using charts
 
-1. In Synapse Studio, right-click the **sales.csv** file in the file storage for your Synapse workspace, point to **New SQL script**, and select **Select TOP 100 rows**.
+1. In Synapse Studio, right-click the **sales.csv** file in the file storage for your Synapse workspace, point to **New SQL script (1)**, and select **Select TOP 100 rows (2)**. 
+
+   ![Query](./images/synapse-lab1-4.png)
+
 2. In the **SQL Script 1** pane that opens, review the SQL code that has been generated, which should be similar to this:
 
     ```SQL
@@ -317,7 +317,7 @@ In this task, we will use a serverless SQL pool to query and analyze data stored
     | Bike Racks | 1 |
     | ... | ... |
 
-8. In the **Properties** pane for **SQL Script 1**, change the **Name** to **Count Products by Category**. Then in the toolbar, select **Publish** to save the script. On **Publish all** window select **Publish**.
+8. In the **Properties** pane for **SQL Script 1**, change the **Name** to **Count Products by Category (1)**. Then in the toolbar, select **Publish** to save the script. On **Publish all (2)** window select **Publish**.
 
     ![Azure portal with a cloud shell pane](./images/DA-image56.png)
 
@@ -325,9 +325,13 @@ In this task, we will use a serverless SQL pool to query and analyze data stored
 
 9. Close the **Count Products by Category** script pane.
 
-10. In Synapse Studio, select the **Develop** page, and notice that your published **Count Products by Category** SQL script has been saved there.
+10. In Synapse Studio, select the **Develop** page, and notice that your published **Count Products by Category** SQL script has been saved there. 
 
-11. Select the **Count Products by Category** SQL script to reopen it. Then ensure that the script is connected to the **Built-in** SQL pool and run it to retrieve the product counts.
+    ![Review and finish](./images/synapse-lab1-5.png)
+
+11. Select the **Count Products by Category** SQL script to reopen it. Then ensure that the script is connected to the **Built-in (1)** SQL pool and **Run (2)** it to retrieve the product counts. 
+
+    ![Review and finish](./images/synapse-lab1-6.png)
 
 12. In the **Results** pane, select the **Chart** view, and then select the following settings for the chart:
     - **Chart type**: Column
@@ -349,11 +353,11 @@ While SQL is a common language for querying structured datasets, many data analy
 
 In this task, we will analyze data using a Spark pool by running PySpark code to load and process data, perform aggregations, and visualize results with charts.
 
-1. In Synapse Studio, if the **files** tab you opened earlier containing the **sales.csv** file is no longer open, on the **Data** page, browse **sales_data** folder. Then right-click **sales.csv**, point to **New notebook**, and select **Load to DataFrame**.
+1. In Synapse Studio, if the **files** tab you opened earlier containing the **sales.csv** file is no longer open, on the **Data** page, browse **sales_data** folder. Then right-click **sales.csv (1)**, point to **New notebook (2)**, and select **Load to DataFrame (3)**.
 
    ![Azure portal with a cloud shell pane](./images/DA-image58.png)
 
-2. In the **Notebook 1** pane that opens, in the **Attach to** list, select the **sparkxxxxxxx** Spark pool and ensure that the **Language** is set to **PySpark (Python)**.
+2. In the **Notebook 1** pane that opens, in the **Attach to** list, select the **sparkxxxxxxx (1)** Spark pool and ensure that the **Language** is set to **PySpark (Python) (2)**.
 
     ![Azure portal with a cloud shell pane](./images/DA-image29.png)
 
@@ -424,9 +428,13 @@ In this task, we will analyze data using a Spark pool by running PySpark code to
 
     ![Azure portal with a cloud shell pane](./images/DA-image61.png)
 
-11. If it is not already visible, show the **Properties** page by selecting the **Properties** button (which looks similar to **&#128463;<sub>*</sub>**) on the right end of the toolbar. Then in the **Properties** pane, change the notebook name to **Explore sales** and use the **Publish** button on the toolbar to save it.
+11. If it is not already visible, show the **Properties** page by selecting the **Properties** button (which looks similar to **&#128463;<sub>*</sub>**) on the right end of the toolbar. Then in the **Properties (1)** pane, change the notebook name to **Explore sales (2)** and use the **Publish (3)** button on the toolbar to save it. 
 
-12. Close the notebook pane and stop the Spark session when prompted. Then view the **Develop** page to verify that the notebook has been saved.
+    ![Review and finish](./images/synapse-lab1-7.png)
+
+12. Close the notebook pane and stop the Spark session when prompted. Then view the **Develop** page to verify that the notebook has been saved. 
+
+    ![Review and finish](./images/synapse-lab1-8.png)
 
 ## Task 6: Use a dedicated SQL pool to query a data warehouse
 
@@ -434,7 +442,7 @@ So far you've seen some techniques for exploring and processing file-based data 
 
 In this task, we will query a data warehouse using a dedicated SQL pool. We will execute SQL queries to retrieve and aggregate sales data and save the queries for future use.
 
-1. In Synapse Studio, on the **Manage** page, in the **SQL pools** section, select the **sql*xxxxxxx*** dedicated SQL pool row and then use its **&#9655;** icon to resume it. Select **Resume** when prompted.
+1. In Synapse Studio, on the **Manage (1)** page, in the **SQL pools (2)** section, select the **sql*xxxxxxx*** dedicated SQL pool row and then use its **&#9655;** icon to resume it. Select **Resume (3)** when prompted.
 
    ![Azure portal with a cloud shell pane](./images/DA-image(10).png)
 
@@ -446,7 +454,7 @@ In this task, we will query a data warehouse using a dedicated SQL pool. We will
    ![Azure portal with a cloud shell pane](./images/DA-image62.png)
 
 3. When the SQL pool has started, select the **Data** page; and on the **Workspace** tab, expand **SQL databases** and verify that **sql*xxxxxxx*** is listed (use **&#8635;** icon at the top-left of the page to refresh the view if necessary).
-4. Expand the **sql*xxxxxxx*** database and its **Tables** folder,  and then in the **...** menu for the **FactInternetSales** table, point to **New SQL script**, and select **Select TOP 100 rows**.
+4. Within the **SQL database (1)** Expand the **sql*xxxxxxx (2)*** database and its **Tables (3)** folder,  and then in the **...** menu for the **FactInternetSales (4)** table, point to **New SQL script (5)**, and select **Select TOP 100 rows (6)**.
 
    ![Azure portal with a cloud shell pane](./images/DA-image63.png)
 
@@ -463,10 +471,17 @@ In this task, we will query a data warehouse using a dedicated SQL pool. We will
     ORDER BY d.MonthNumberOfYear
     ```
 
-7. Use the **&#9655; Run** button to run the modified query, which returns the quantity of each product sold by year and month.
-8. If it is not already visible, show the **Properties** page by selecting the **Properties** button (which looks similar to **&#128463;<sub>*</sub>**) on the right end of the toolbar. Then in the **Properties** pane, change the query name to **Aggregate product sales** and use the **Publish** button on the toolbar to save it.
+7. Use the **&#9655; Run** button to run the modified query, which returns the quantity of each product sold by year and month. 
 
-9. Close the query pane, and then view the **Develop** page to verify that the SQL script has been saved.
+   ![Review and finish](./images/synapse-lab1-9.png) 
+
+8. If it is not already visible, show the **Properties** page by selecting the **Properties** button (which looks similar to **&#128463;<sub>*</sub>**) on the right end of the toolbar. Then in the **Properties (1)** pane, change the query name to **Aggregate product sales (2)** and use the **Publish (3)** button on the toolbar to save it. 
+
+   ![Review and finish](./images/synapse-lab1-10.png)
+
+9. Close the query pane, and then view the **Develop** page to verify that the SQL script has been saved. 
+
+   ![Review and finish](./images/synapse-lab1-11.png)
 
 10. On the **Manage** page, select the **sql*xxxxxxx*** dedicated SQL pool row and use its &#10074;&#10074; icon to pause it. Click **Pause** if prompted.
 

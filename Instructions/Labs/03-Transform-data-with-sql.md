@@ -13,12 +13,6 @@ After completing this lab, you will be able to:
 + Task 3: Transform data using CREATE EXTERAL TABLE AS SELECT (CETAS) statements.
 + Task 4: Encapsulate data transformation in a stored procedure.
 
-### Estimated timing: 45 minutes
-
-### Architecture Diagram
-
-   ![Azure portal with a cloud shell pane](./Lab-Scenario-Preview/media/lab3.png)
-
 ## Task 1: Provision an Azure Synapse Analytics workspace
 
 You'll need an Azure Synapse Analytics workspace with access to data lake storage. You can use the built-in serverless SQL pool to query files in the data lake.
@@ -39,7 +33,7 @@ In this task, you'll use a combination of a PowerShell script and an ARM templat
 
    ![Azure portal with a cloud shell pane](./images/DA-image3.png)
 
-1. Within the Mount storage account pane, select **we will create a storage aacount for you (1)** and click **Next (2)**.
+1. Within the Mount storage account pane, select **we will create a storage account for you (1)** and click **Next (2)**.
 
     ![Azure portal with a cloud shell pane](./images/DA-image4.png)
 
@@ -110,7 +104,9 @@ In this task, you will be working on Synapse studio where you will query various
 
 ### Task 2.2: Use SQL to query CSV files
 
-1. Right click the **csv** folder, and then in the **New SQL script** list on the toolbar, select **Select TOP 100 rows**.
+1. Right click the **csv (1)** folder, and then in the **New SQL script (2)** list on the toolbar, select **Select TOP 100 rows (3)**. 
+
+    ![](./images/synapse-lab2-26.png) 
    
 2. In the **File type** list, select **Text format**, and then apply the settings to open a new SQL script that queries the data in the folder.
    
@@ -260,13 +256,21 @@ By defining an external data source in a database, you can use it to reference t
    
 6. Name the script **Create ProductSalesTotals table** and publish it.
    
-7. On the **data** page, in the **Workspace** tab, view the contents of the **External tables** folder for the **Sales** SQL database to verify that a new table named **ProductSalesTotals** has been created.
+7. On the **data** page, in the **Workspace** tab, view the contents of the **External tables** folder for the **Sales** SQL database to verify that a new table named **ProductSalesTotals** has been created. 
+
+    ![](./images/synapse-lab2-28.png)
    
-8. In the **...** menu for the **ProductSalesTotals** table, select **New SQL script** > **Select TOP 100 rows**. Then run the resulting script and verify that it returns the aggregated product sales data.
+8. In the **...** menu for the **ProductSalesTotals (1)** table, select **New SQL script (2)** > **Select TOP 100 rows (3)**. Then run the resulting script and verify that it returns the aggregated product sales data. 
+
+    ![](./images/synapse-lab2-29.png)
    
-9. On the **files** tab containing the file system for your data lake, view the contents of the **sales** folder (refreshing the view if necessary) and verify that a new **productsales** folder has been created.
+9. On the **files** tab containing the file system for your data lake, view the contents of the **sales** folder (refreshing the view if necessary) and verify that a new **productsales** folder has been created. 
+
+    ![](./images/synapse-lab2-30.png)
     
-10. In the **productsales** folder, observe that one or more files with names similar to ABC123DE----.parquet have been created. These files contain the aggregated product sales data. To prove this, you can select one of the files and use the **New SQL script** > **Select TOP 100 rows** menu to query it directly.
+10. In the **productsales** folder, observe that one or more files with names similar to ABC123DE----.parquet have been created. These files contain the aggregated product sales data. To prove this, you can select one of the files and use the **New SQL script** > **Select TOP 100 rows** menu to query it directly. 
+
+    ![](./images/synapse-lab2-31.png)
 
 ## Task 4: Encapsulate data transformation in a stored procedure
 
@@ -323,7 +327,9 @@ In this task, you will create the stored procedure using SQL script and get the 
 
 5. Select only the `EXEC sp_GetYearlySales;` statement you just added, and use the **&#9655; Run** button to run it.
    
-6. On the **files** tab containing the file system for your data lake, view the contents of the **sales** folder (refreshing the view if necessary) and verify that a new **yearlysales** folder has been created.
+6. On the **files** tab containing the file system for your data lake, view the contents of the **sales** folder (refreshing the view if necessary) and verify that a new **yearlysales** folder has been created. 
+
+    ![](./images/synapse-lab2-32.png)
    
 7. In the **yearlysales** folder, observe that a parquet file containing the aggregated yearly sales data has been created.
    
@@ -331,7 +337,9 @@ In this task, you will create the stored procedure using SQL script and get the 
 
     Even though the script drops the external table, the folder containing the data is not deleted. To re-run the stored procedure (for example, as part of a scheduled data transformation pipeline), you must delete the old data.
 
-9. Switch back to the **files** tab, and view the **sales** folder. Then select the **yearlysales** folder and delete it.
+9. Switch back to the **files** tab, and view the **sales** folder. Then select the **yearlysales (1)** folder and **Delete (2)** it. 
+
+    ![](./images/synapse-lab2-33.png)
     
 10. Switch back to the SQL script and re-run the `EXEC sp_GetYearlySales;` statement. This time, the operation succeeds and a new data file is generated.
 

@@ -13,12 +13,6 @@ After completing this lab, you will be able to:
 + Task 3: Access external data in a database.
 + Task 4: Visualize the query results.
 
-### Estimated timing: 45 minutes
-
-### Architecture Diagram
-
-   ![Azure portal with a cloud shell pane](./Lab-Scenario-Preview/media/lab2.png)
-
 ## Task 1: Provision an Azure Synapse Analytics workspace
 
 You'll need an Azure Synapse Analytics workspace with access to data lake storage. You can use the built-in serverless SQL pool to query files in the data lake.
@@ -39,7 +33,7 @@ In this task, you'll use a combination of a PowerShell script and an ARM templat
 
    ![Azure portal with a cloud shell pane](./images/DA-image3.png)
 
-1. Within the Mount storage account pane, select **we will create a storage aacount for you (1)** and click **Next (2)**.
+1. Within the Mount storage account pane, select **we will create a storage account for you (1)** and click **Next (2)**.
 
     ![Azure portal with a cloud shell pane](./images/DA-image4.png)
 
@@ -79,13 +73,17 @@ In this task, you will  be working with Synapse Studio where you will query the 
 
 1. After the script has completed, in the Azure portal, go to the **synapse** resource group that it created, and select your Synapse workspace.
 
-   ![](./images/labimg1.png)
+   ![](./images/labimg1.png) 
+
+   ![](./images/synapse-lab2-1.png) 
 
 2. In the **Overview** page for your Synapse workspace, in the **Open Synapse Studio** card, select **Open** to Open Synapse Studio in a new browser tab, sign in if prompted.
 
    ![](./images/labimg2.png)
 
-3. On the left side of Synapse Studio, use the **&rsaquo;&rsaquo;** icon to expand the menu - this reveals the different pages within Synapse Studio that you'll use to manage resources and perform data analytics tasks.
+3. On the left side of Synapse Studio, use the **&rsaquo;&rsaquo;** icon to expand the menu - this reveals the different pages within Synapse Studio that you'll use to manage resources and perform data analytics tasks. 
+
+   ![](./images/synapse-lab2-2.png)
 
 4. On the **Data** **(1)** page, view the **Linked** **(2)** tab and verify that your workspace includes a link to your Azure Data Lake Storage Gen2 storage account, which should have a name similar to **synapse*xxxxxxx* (Primary - datalake*xxxxxxx*)**.
 
@@ -101,27 +99,39 @@ In this task, you will  be working with Synapse Studio where you will query the 
 
    ![](./images/labimg5.png)
 
-8. Right-click any of the files and select **Preview** to see the data it contains. Note that the files do not contain a header row, so you can unselect the option to display column headers. Close the preview.
+8. Right-click any of the files and select **Preview** to see the data it contains. Note that the files do not contain a header row, so you can unselect the option to display column headers. Close the preview. 
 
-9. Close the preview, and then use the **&#8593;** button to navigate back to the **sales** folder.
+    ![](./images/synapse-lab2-3.png)
+
+9. Close the preview, and then use the **&#8593;** button to navigate back to the **sales** folder. 
+
+    ![](./images/synapse-lab2-4.png)
 
 10. In the **sales** folder, open the **json** folder and observe that it contains some sample sales orders in .json files. Preview any of these files to see the JSON format used for a sales order.
 
     ![](./images/labimg6.png)
 
-11. Close the preview, and then use the **&#8593;** button to navigate back to the **sales** folder.
+11. Close the preview, and then use the **&#8593;** button to navigate back to the **sales** folder. 
 
-12. In the **sales** folder, open the **parquet** folder and observe that it contains a subfolder for each year (2019-2021), in each of which a file named **orders.snappy.parquet** contains the order data for that year. 
+12. In the **sales** folder, open the **parquet** folder and observe that it contains a subfolder for each year (2019-2021), in each of which a file named **orders.snappy.parquet** contains the order data for that year.  
+
+    ![](./images/synapse-lab2-6.png)
 
 13. Return to the **sales** folder so you can see the **csv**, **json**, and **parquet** folders.
 
 ### Task 2.2: Use SQL to query CSV files
 
-1. Right-click the **csv** folder, and then in the **New SQL script** list on the toolbar, select **Select TOP 100 rows**.
+1. Right-click the **csv** folder, and then in the **New SQL script (1)** list on the toolbar, select **Select TOP 100 rows (2)**. 
 
-2. In the **File type** list, select **Text format**, and then **Apply** the settings to open a new SQL script that queries the data in the folder.
+    ![](./images/synapse-lab2-7.png)
 
-3. In the **Properties** pane for **SQL Script 1** that is created, change the name to **Sales CSV query**, and change the result settings to show **All rows**. Then in the toolbar, select **Publish** to save the script and use the **Properties** button (which looks similar to **&#128463;**) on the right end of the toolbar to hide the **Properties** pane.
+2. In the **File type** list, select **Text format (1)**, and then **Apply (2)** the settings to open a new SQL script that queries the data in the folder. 
+
+    ![](./images/synapse-lab2-8.png)
+
+3. In the **Properties** pane for **SQL Script 1** that is created, change the name to **Sales CSV query (1)**, and change the result settings to show **All rows (2)**. Then in the toolbar, select **Publish (3)** to save the script and use the **Properties (4)** button (which looks similar to **&#128463;**) on the right end of the toolbar to hide the **Properties** pane. 
+
+    ![](./images/synapse-lab2-9.png)
 
 4. Review the SQL code that has been generated, which should be similar to this:
 
@@ -140,7 +150,9 @@ In this task, you will  be working with Synapse Studio where you will query the 
     This code uses the OPENROWSET to read data from the CSV files in the sales folder and retrieves the first 100 rows of data.
 
 5. Select the **...** next to publish and in the **Connect to** list, ensure **Built-in** is selected - this represents the built-in SQL Pool that was created with your workspace.
-
+ 
+    ![](./images/synapse-lab2-10.png)
+    
 6. On the toolbar, use the **&#9655; Run** button to run the SQL code, and review the results, which should look similar to this:
 
     ![Azure portal with a cloud shell pane](./images/DP-203(1).png)
@@ -181,7 +193,9 @@ While CSV is an easy format to use, it's common in big data processing scenarios
 
 1. In the **files** tab contaning the file system for your data lake, return to the **sales** folder so you can see the **csv**, **json**, and **parquet** folders.
 
-2. Right-click the **parquet** folder, and then in the **New SQL script** list on the toolbar, select **Select TOP 100 rows**.
+2. Right-click the **parquet (1)** folder, and then in the **New SQL script (2)** list on the toolbar, select **Select TOP 100 rows (3)**. 
+
+    ![](./images/synapse-lab2-11.png)
 
 3. In the **File type** list, select **Parquet format**, and then **Apply** the settings to open a new SQL script that queries the data in the folder. The script should look similar to this:
 
@@ -233,7 +247,9 @@ While CSV is an easy format to use, it's common in big data processing scenarios
 
 8. Review the results and note that they include only the sales counts for 2019 and 2020. This filtering is achieved by inclusing a wildcard for the partition folder value in the BULK path (*year=\**) and a WHERE clause based on the *filepath* property of the results returned by OPENROWSET (which in this case has the alias *[result]*).
 
-9. Name your script **Sales Parquet query**, and publish it. Then close the script pane.
+9. Name your script **Sales Parquet query (1)**, and **Publish (2)** it. Then close the script pane. 
+
+    ![](./images/synapse-lab2-13.png)
 
 ### Task 2.4: Use SQL to query JSON files
 
@@ -241,7 +257,9 @@ JSON is another popular data format, so it;s useful to be able to query .json fi
 
 1. In the **files** tab containing the file system for your data lake, return to the **sales** folder so you can see the **csv**, **json**, and **parquet** folders.
 
-2. Right-click the **json** folder, and then in the **New SQL script** list on the toolbar, select **Select TOP 100 rows**.
+2. Right-click the **json (1)** folder, and then in the **New SQL script (2)** list on the toolbar, select **Select TOP 100 rows (3)**. 
+
+    ![](./images/synapse-lab2-14.png)
 
 3. In the **File type** list, select **Text format**, and then **Apply** the settings to open a new SQL script that queries the data in the folder. The script should look similar to this:
 
@@ -307,7 +325,9 @@ In this task, you will be creating an external data source and use SQL script to
 
 By defining an external data source in a database, you can use it to reference the data lake location where the files are stored.
 
-1. In Synapse Studio, on the **Develop** page, select **+** menu and then select **SQL script**.
+1. In Synapse Studio, on the **Develop (1)** page, select **+ (2)** menu and then select **SQL script (3)**. 
+
+    ![](./images/synapse-lab2-17.png) 
 
 2. In the new script pane, add the following code (replacing *datalakexxxxxxx* with the name of your data lake storage account) to create a new database and add an external data source to it and run it.
 
@@ -329,9 +349,13 @@ By defining an external data source in a database, you can use it to reference t
 
 4. Ensure that the script is connected to the **Built-in** SQL pool and the **master** database, and then run it.
 
-5. Switch back to the **Data** page and use the **&#8635;** button at the top right of Synapse Studio to refresh the page. Then view the **Workspace** tab in the **Data** pane, where a **SQL database** list is now displayed. Expand this list to verify that the **Sales** database has been created.
+5. Switch back to the **Data** page and use the **&#8635;** button at the top right of Synapse Studio to refresh the page. Then view the **Workspace** tab in the **Data** pane, where a **SQL database** list is now displayed. Expand this list to verify that the **Sales** database has been created. 
 
-6. Expand the **Sales** database, its **External Resources** folder, and the **External data sources** folder under that to see the **sales_data** external data source you created.
+    ![](./images/synapse-lab2-20.png)
+
+6. Expand the **Sales (1)** database, its **External Resources (2)** folder, and the **External data sources (3)** folder under that to see the **sales_data (4)** external data source you created. 
+
+    ![](./images/synapse-lab2-21.png)
 
 7. In the **...** menu for the **Sales** database, select **New SQL script** > **Empty script**. Then in the new script pane, enter and run the following query:
 
@@ -399,9 +423,11 @@ The external data source makes it easier to access the files in the data lake, b
     GO
     ```
 
-2. Refresh and expand the **External tables** folder in the **Data** pane and confirm that a table named **dbo.orders** has been created in the **Sales** database.
+2. Refresh and expand the **External tables** folder in the **Data** pane and confirm that a table named **dbo.orders** has been created in the **Sales** database. 
 
-3. In the **...** menu for the **dbo.orders** table, select **New SQL script** > **Select TOP 100 rows**.
+    ![](./images/synapse-lab2-23.png)
+
+3. In the **...** menu for the **dbo.orders** table, select **New SQL script** > **Select TOP 100 rows**. 
 
 4. Run the SELECT script that has been generated, and verify that it retrieves the first 100 rows of data from the table, which in turn references the files in the data lake.
 
