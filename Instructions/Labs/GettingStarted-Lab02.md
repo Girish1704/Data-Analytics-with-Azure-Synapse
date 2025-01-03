@@ -40,14 +40,14 @@ The architecture leverages Azure Synapse Analytics to create an efficient enviro
 
 ## Explanation of Components
 
-### **Lab 02 Components:**
+### Lab 02 Components:
 
 - **Azure Synapse Analytics Workspace:** A central hub for managing data queries, analysis, and visualization, enabling seamless interaction with both internal and external data sources.
 - **Serverless SQL Pool:** A scalable query engine that allows running SQL queries directly on data files in Azure Data Lake, without requiring the provisioning of dedicated infrastructure.
 - **Data Lake or External Storage:** A repository, often Azure Data Lake, where large datasets such as CSV, JSON, or Parquet files are stored and accessed for querying and analysis.
 - **Visualization Tools:** Integrated tools within Synapse Studio or external platforms like Power BI to visualize query results, facilitating the creation of interactive reports and dashboards for business insights.
 
-### **Lab 03 Components:**
+### Lab 03 Components:
 
 - **Azure Synapse Analytics Workspace:** A unified environment for data transformation, querying, and analysis, where users can manage both structured and unstructured data workflows.
 - **CETAS (Create External Table As Select):** A SQL statement used to transform data and store the results as external tables in the data lake, enabling efficient data reuse and further analysis.
