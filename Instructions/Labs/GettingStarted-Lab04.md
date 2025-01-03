@@ -56,6 +56,7 @@ The architecture starts with provisioning an Azure Synapse Analytics workspace, 
 - **Data Files in Azure Data Lake:** Source files (e.g., CSV, Parquet) stored in Azure Data Lake are accessed and processed during the transformation workflow.
 
 - **Spark Notebook:** Serves as the interactive interface to write and execute code for data transformation, enabling complex ETL and ELT operations.
+  
 ## Getting Started with the Lab 
 
 Once you're ready to dive in, your virtual machine and lab guide will be right at your fingertips within your web browser.
