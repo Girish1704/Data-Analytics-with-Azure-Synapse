@@ -21,15 +21,17 @@ An Azure *Synapse Analytics workspace* provides a central point for managing dat
 
 In this task, we will provision an Azure Synapse Analytics workspace using a PowerShell script and an ARM template. We will set up a Cloud Shell, clone a repository, and execute a setup script to create the necessary resources.
 
+1. Login to **Azure portal** at [https://portal.azure.com](https://portal.azure.com).
+
 1. Use the **[\>_]** button to the right of the search bar at the top of the page to create a new Cloud Shell in the **Azure portal**.
 
     ![Azure portal with a cloud shell pane](./images/DA-image1.png)
 
-1. The first time you open the Cloud Shell, you may be prompted to choose the type of shell you want to use (Bash or PowerShell). If so, select PowerShell.
+1. The first time you open the Cloud Shell, you may be prompted to choose the type of shell you want to use (**Bash or PowerShell**). If so, select PowerShell.
 
     ![Azure portal with a cloud shell pane](./images/DA-image2.png)
 
-    > **Note**: If you have previously created a cloud shell that uses a *Bash* environment, use the the drop-down menu at the top left of the cloud shell pane to change it to ***PowerShell***.
+    > **Note**: If you have previously created a cloud shell that uses a **Bash** environment, use the the drop-down menu at the top left of the cloud shell pane to change it to **PowerShell**.
 
 1. On Getting started window choose **Mount storage account(1)** then under Storage account subscription select your available **subscription (2)** from the dropdown and click on **Apply (3)**.
 
