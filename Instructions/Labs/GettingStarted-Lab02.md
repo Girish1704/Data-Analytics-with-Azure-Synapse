@@ -58,7 +58,7 @@ The architecture leverages Azure Synapse Analytics to create an efficient enviro
 
 Once you're ready to dive in, your virtual machine and lab guide will be right at your fingertips within your web browser.
  
-![Access Your VM and Lab Guide](../Labs/images/labguide-1.png)
+![Access Your VM and Lab Guide](../Labs/images/gt-synp-l2-2.png)
 
 ### Virtual Machine & Lab Guide
  
@@ -68,27 +68,27 @@ Your virtual machine is your workhorse throughout the workshop. The lab guide is
  
 ## Exploring Your Lab Resources
  
-To get a better understanding of your lab resources and credentials, navigate to the **Environment Details** tab.
+To get a better understanding of your lab resources and credentials, navigate to the **Environment** details tab.
  
-![Explore Lab Resources](../Labs/images/env-1.png)
+![Explore Lab Resources](../Labs/images/cor-op-rt-g-3.png)
  
 ## Utilizing the Split Window Feature
  
 For convenience, you can open the lab guide in a separate window by selecting the **Split Window** button from the Top right corner.
  
-![Use the Split Window Feature](../Labs/images/spl.png) 
+![Use the Split Window Feature](../Labs/images/cor-op-rt-g-4.png) 
 
 ## Lab Guide Zoom In/Zoom Out
  
-To adjust the zoom level for the environment page, click the **A↕ : 100%** icon located next to the timer in the lab environment.
+To adjust the zoom level for the environment page, click the **A↕** icon located next to the timer in the lab environment.
 
-![](./images/zoom.png)
+![](./images/cor-op-rt-g-5.png)
  
 ## Managing Your Virtual Machine
  
 Feel free to start, stop, or restart your virtual machine as needed from the **Resources** tab. Your experience is in your hands!
  
-![Manage Your Virtual Machine](../Labs/images/res.png)
+![Manage Your Virtual Machine](../Labs/images/cor-op-rt-g-6.png)
 
 ## Let's Get Started with Azure Portal
  
