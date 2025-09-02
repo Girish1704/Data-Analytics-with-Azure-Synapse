@@ -52,7 +52,7 @@ The architecture for this lab involves the following key components:
 
 Once you're ready to dive in, your virtual machine and lab guide will be right at your fingertips within your web browser.
  
-![Access Your VM and Lab Guide](../Labs/images/labguide-1.png)
+![Access Your VM and Lab Guide](../Labs/images/synap-gp-t4-1.png)
 
 ### Virtual Machine & Lab Guide
  
@@ -62,33 +62,33 @@ Your virtual machine is your workhorse throughout the workshop. The lab guide is
  
 ## Exploring Your Lab Resources
  
-To get a better understanding of your lab resources and credentials, navigate to the **Environment Details** tab.
+To get a better understanding of your lab resources and credentials, navigate to the **Environment** details tab.
  
-![Explore Lab Resources](../Labs/images/env-1.png)
+![Explore Lab Resources](../Labs/images/cor-op-rt-g-3.png)
  
 ## Utilizing the Split Window Feature
  
 For convenience, you can open the lab guide in a separate window by selecting the **Split Window** button from the Top right corner.
  
-![Use the Split Window Feature](../Labs/images/spl.png) 
+![Use the Split Window Feature](../Labs/images/cor-op-rt-g-4.png) 
 
 ## Lab Guide Zoom In/Zoom Out
  
-To adjust the zoom level for the environment page, click the **A↕ : 100%** icon located next to the timer in the lab environment.
+To adjust the zoom level for the environment page, click the **A↕** icon located next to the timer in the lab environment.
 
-![](./images/zoom.png)
+![](./images/cor-op-rt-g-5.png)
  
 ## Managing Your Virtual Machine
  
 Feel free to start, stop, or restart your virtual machine as needed from the **Resources** tab. Your experience is in your hands!
  
-![Manage Your Virtual Machine](../Labs/images/res.png)
+![Manage Your Virtual Machine](../Labs/images/cor-op-rt-g-6.png)
 
 ## Let's Get Started with Azure Portal
  
 1. On your virtual machine, click on the Azure Portal icon as shown below:
  
-   ![Launch Azure Portal](../Labs/images/sc900-image(1).png)
+   ![Launch Azure Portal](../Labs/images/synap-gp-t4-1-2.png)
 
 2. You'll see the **Sign into Microsoft Azure** tab. Here, enter your credentials:
  
@@ -125,6 +125,3 @@ Now, click on **Next** from the lower right corner to move on to the next page.
   ![Start Your Azure Journey](../Labs/images/sc900-image(3).png)
 
 ### Happy Learning!!
-
-
-
