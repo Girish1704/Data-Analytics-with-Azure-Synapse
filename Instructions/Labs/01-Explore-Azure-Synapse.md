@@ -95,7 +95,11 @@ In this task, we will explore Synapse Studio by navigating through its various p
 
 6. View the **Develop** page, which is currently empty. This is where you can define scripts and other assets used to develop data processing solutions.
 
+    ![](./images/syn-an-g1-4.png)
+
 7. View the **Integrate** page, which is also empty. You use this page to manage data ingestion and integration assets; such as pipelines to transfer and transform data between data sources.
+
+    ![](./images/syn-an-g1-5.png)
 
 8. View the **Monitor** page. This is where you can observe data processing jobs as they run and view their history.
 
@@ -138,7 +142,7 @@ In this task, we will ingest data into Azure Synapse Analytics by creating a pip
      
            ![Azure portal with a cloud shell pane](./images/DA-image40.png)
 
-           ![Azure portal with a cloud shell pane](./images/DA-image41.png)
+           ![Azure portal with a cloud shell pane](./images/syn-an-g1-7.png)
 
            ![Azure portal with a cloud shell pane](./images/DA-image42.png)
 
