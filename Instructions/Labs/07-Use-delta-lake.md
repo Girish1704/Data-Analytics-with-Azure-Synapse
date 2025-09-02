@@ -55,6 +55,7 @@ In this task, we will provision an Azure Synapse Analytics workspace using a Pow
     ```
 
 1. If prompted, choose which subscription you want to use (this will only happen if you have access to multiple Azure subscriptions).
+
 1. When prompted, enter a suitable password to be set for your Azure Synapse SQL pool.
 
     > **Note**: Be sure to remember this password!
@@ -83,31 +84,31 @@ In this task, we will create delta tables by first exploring data in the data la
 
    ![Azure portal with a cloud shell pane](./images/DA-image(9).png)
  
-4. On the **Data** page, view the **Linked** tab and verify that your workspace includes a link to your Azure Data Lake Storage Gen2 storage account, which should have a name similar to **synapsexxxxxxx(Primary - datalakexxxxxxx)**.
+1. On the **Data** page, view the **Linked** tab and verify that your workspace includes a link to your Azure Data Lake Storage Gen2 storage account, which should have a name similar to **synapsexxxxxxx(Primary - datalakexxxxxxx)**.
 
     ![Azure portal with a cloud shell pane](./images/DA-image(13).png)
 
-5. Expand your storage account and verify that it contains a file system container named **files**.
+1. Expand your storage account and verify that it contains a file system container named **files**.
 
     ![Azure portal with a cloud shell pane](./images/DA-image(14).png)
 
-6. Select the **files** container, and note that it contains a folder named **products**. This folder contains the data you are going to work with in this exercise.
+1. Select the **files** container, and note that it contains a folder named **products**. This folder contains the data you are going to work with in this exercise.
 
     ![Azure portal with a cloud shell pane](./images/DA-image26.png)
 
-7. Open the **products** folder, and observe that it contains a file named **products.csv**.
+1. Open the **products** folder, and observe that it contains a file named **products.csv**.
 
    ![Azure portal with a cloud shell pane](./images/DA-image27.png)
 
-8. Select **products.csv**, and then in the **New notebook** list on the toolbar, select **Load to DataFrame**.
+1. Select **products.csv**, and then in the **New notebook** list on the toolbar, select **Load to DataFrame**.
 
    ![Azure portal with a cloud shell pane](./images/DA-image28.png)
 
-9. In the **Notebook 1** pane that opens, in the **Attach to** list, select the **sparkxxxxxxx (1)** Spark pool and ensure that the **Language** is set to **PySpark (Python) (2)**.
+1. In the **Notebook 1** pane that opens, in the **Attach to** list, select the **sparkxxxxxxx (1)** Spark pool and ensure that the **Language** is set to **PySpark (Python) (2)**.
 
    ![Azure portal with a cloud shell pane](./images/DA-image29.png)
 
-10. Review the code in the first (and only) cell in the notebook, which should look like this:
+1. Review the code in the first (and only) cell in the notebook, which should look like this:
 
     ```Python
     %%pyspark
@@ -118,7 +119,7 @@ In this task, we will create delta tables by first exploring data in the data la
     display(df.limit(10))
     ```
 
-11. Uncomment the *,header=True* line (because the products.csv file has the column headers in the first line), so your code looks like this:
+1. Uncomment the *,header=True* line (because the products.csv file has the column headers in the first line), so your code looks like this:
 
     ```Python
     %%pyspark
@@ -129,7 +130,7 @@ In this task, we will create delta tables by first exploring data in the data la
     display(df.limit(10))
     ```
 
-12. Use the **&#9655;** icon to the left of the code cell to run it, and wait for the results. The first time you run a cell in a notebook, the Spark pool is started - so it may take a minute or so to return any results. Eventually, the results should appear below the cell, and they should be similar to this:
+1. Use the **&#9655;** icon to the left of the code cell to run it, and wait for the results. The first time you run a cell in a notebook, the Spark pool is started - so it may take a minute or so to return any results. Eventually, the results should appear below the cell, and they should be similar to this:
 
     | ProductID | ProductName | Category | ListPrice |
     | -- | -- | -- | -- |
@@ -158,7 +159,7 @@ In this task, we will create delta tables by first exploring data in the data la
 
     ![Azure portal with a cloud shell pane](./images/DA-image34.png)
 
-4. Return to the **Notebook 1** tab and add another new code cell. Then, in the new cell, add the following code and run it:
+1. Return to the **Notebook 1** tab and add another new code cell. Then, in the new cell, add the following code and run it:
 
     ```Python
     from delta.tables import *
@@ -176,31 +177,39 @@ In this task, we will create delta tables by first exploring data in the data la
     deltaTable.toDF().show(10)
     ```
 
+    ![](./images/synap-gp-t4-2.png)
+
     The data is loaded into a **DeltaTable** object and updated. You can see the update reflected in the query results.
 
-5. Add another new code cell with the following code and run it:
+1. Add another new code cell with the following code and run it:
 
     ```Python
     new_df = spark.read.format("delta").load(delta_table_path)
     new_df.show(10)
     ```
 
+    ![](./images/synap-gp-t4-3.png)
+
     The code loads the delta table data into a data frame from its location in the data lake, verifying that the change you made via a **DeltaTable** object has been persisted.
 
-6. Modify the code you just ran as follows, specifying the option to use the *time travel* feature of delta lake to view a previous version of the data.
+1. Modify the code you just ran as follows, specifying the option to use the *time travel* feature of delta lake to view a previous version of the data.
 
     ```Python
     new_df = spark.read.format("delta").option("versionAsOf", 0).load(delta_table_path)
     new_df.show(10)
     ```
 
+    ![](./images/synap-gp-t4-4.png)
+
     When you run the modified code, the results show the original version of the data.
 
-7. Add another new code cell with the following code and run it:
+1. Add another new code cell with the following code and run it:
 
     ```Python
     deltaTable.history(10).show(20, False, True)
     ```
+
+    ![](./images/synap-gp-t4-5.png)
 
     The history of the last 20 changes to the table is shown - there should be two (the original creation, and the update you made.)
 
@@ -223,9 +232,11 @@ In this task, we will create catalog tables. We will create an external table an
     spark.sql("DESCRIBE EXTENDED AdventureWorks.ProductsExternal").show(truncate=False)
     ```
 
+    ![](./images/synap-gp-t4-6.png)
+
     This code creates a new database named **AdventureWorks** and then creates an external tabled named **ProductsExternal** in that database based on the path to the parquet files you defined previously. It then displays a description of the table's properties. Note that the **Location** property is the path you specified.
 
-2. Add a new code cell, and then enter and run the following code:
+1. Add a new code cell, and then enter and run the following code:
 
     ```sql
     %%sql
@@ -234,6 +245,8 @@ In this task, we will create catalog tables. We will create an external table an
 
     SELECT * FROM ProductsExternal;
     ```
+
+    ![](./images/synap-gp-t4-7.png)
 
     The code uses SQL to switch context to the **AdventureWorks** database (which returns no data) and then query the **ProductsExternal** table (which returns a resultset containing the products data in the Delta Lake table).
 
@@ -246,9 +259,11 @@ In this task, we will create catalog tables. We will create an external table an
     spark.sql("DESCRIBE EXTENDED AdventureWorks.ProductsManaged").show(truncate=False)
     ```
 
+    ![](./images/synap-gp-t4-8.png)
+
     This code creates a managed tabled named **ProductsManaged** based on the DataFrame you originally loaded from the **products.csv** file (before you updated the price of product 771). You do not specify a path for the parquet files used by the table - this is managed for you in the Hive metastore, and shown in the **Location** property in the table description (in the **files/synapse/workspaces/synapsexxxxxxx/warehouse** path).
 
-2. Add a new code cell, and then enter and run the following code:
+1. Add a new code cell, and then enter and run the following code:
 
     ```sql
     %%sql
@@ -257,6 +272,8 @@ In this task, we will create catalog tables. We will create an external table an
 
     SELECT * FROM ProductsManaged;
     ```
+
+    ![](./images/synap-gp-t4-9.png)
 
     The code uses SQL to query the **ProductsManaged** table.
 
@@ -272,9 +289,11 @@ In this task, we will create catalog tables. We will create an external table an
     SHOW TABLES;
     ```
 
+    ![](./images/synap-gp-t4-10.png)
+
     This code lists the tables in the **AdventureWorks** database.
 
-2. Modify the code cell as follows, add run it:
+1. Modify the code cell as follows, add run it:
 
     ```sql
     %%sql
@@ -287,8 +306,9 @@ In this task, we will create catalog tables. We will create an external table an
 
     This code drops the tables from the metastore.
 
-3. Return to the **files** tab and view the **files/delta/products-delta** folder. Note that the data files still exist in this location. Dropping the external table has removed the table from the metastore, but left the data files intact.
-4. View the **files/synapse/workspaces/synapsexxxxxxx/warehouse** folder, and note that there is no folder for the **ProductsManaged** table data. Dropping a managed table removes the table from the metastore and also deletes the table's data files.
+1. Return to the **files** tab and view the **files/delta/products-delta** folder. Note that the data files still exist in this location. Dropping the external table has removed the table from the metastore, but left the data files intact.
+
+1. View the **files/synapse/workspaces/synapsexxxxxxx/warehouse** folder, and note that there is no folder for the **ProductsManaged** table data. Dropping a managed table removes the table from the metastore and also deletes the table's data files.
 
 ### Task 3.4: Create a table using SQL
 
@@ -304,7 +324,7 @@ In this task, we will create catalog tables. We will create an external table an
     LOCATION '/delta/products-delta';
     ```
 
-2. Add a new code cell, and then enter and run the following code:
+1. Add a new code cell, and then enter and run the following code:
 
     ```sql
     %%sql
@@ -356,7 +376,7 @@ In this task, we will use delta tables for streaming data. We will create a stre
 
     Ensure the message *Source stream created...* is printed. The code you just ran has created a streaming data source based on a folder to which some data has been saved, representing readings from hypothetical IoT devices.
 
-2. In a new code cell, add and run the following code:
+1. In a new code cell, add and run the following code:
 
     ```python
     # Write the stream to a delta table
@@ -368,7 +388,7 @@ In this task, we will use delta tables for streaming data. We will create a stre
 
     This code writes the streaming device data in delta format.
 
-3. In a new code cell, add and run the following code:
+1. In a new code cell, add and run the following code:
 
     ```python
     # Read the data in delta format into a dataframe
@@ -378,7 +398,7 @@ In this task, we will use delta tables for streaming data. We will create a stre
 
     This code reads the streamed data in delta format into a dataframe. Note that the code to load streaming data is no different to that used to load static data from a delta folder.
 
-4. In a new code cell, add and run the following code:
+1. In a new code cell, add and run the following code:
 
     ```python
     # create a catalog table based on the streaming sink
@@ -387,7 +407,7 @@ In this task, we will use delta tables for streaming data. We will create a stre
 
     This code creates a catalog table named **IotDeviceData** (in the **default** database) based on the delta folder. Again, this code is the same as would be used for non-streaming data.
 
-5. In a new code cell, add and run the following code:
+1. In a new code cell, add and run the following code:
 
     ```sql
     %%sql
@@ -397,7 +417,7 @@ In this task, we will use delta tables for streaming data. We will create a stre
 
     This code queries the **IotDeviceData** table, which contains the device data from the streaming source.
 
-6. In a new code cell, add and run the following code:
+1. In a new code cell, add and run the following code:
 
     ```python
     # Add more data to the source stream
@@ -414,7 +434,7 @@ In this task, we will use delta tables for streaming data. We will create a stre
 
     This code writes more hypothetical device data to the streaming source.
 
-7. In a new code cell, add and run the following code:
+1. In a new code cell, add and run the following code:
 
     ```sql
     %%sql
@@ -424,7 +444,7 @@ In this task, we will use delta tables for streaming data. We will create a stre
 
     This code queries the **IotDeviceData** table again, which should now include the additional data that was added to the streaming source.
 
-8. In a new code cell, add and run the following code:
+1. In a new code cell, add and run the following code:
 
     ```python
     deltastream.stop()
@@ -440,13 +460,13 @@ In this lab, we will query a delta table from a serverless SQL pool. We will use
 
 1. In the **files** tab, browse to the **files/delta** folder.
 
-2. Select and right click the **products-delta (1)** folder, in the **New SQL script (2)** drop-down list, select **Select TOP 100 rows (3)**.
+1. Select and right click the **products-delta (1)** folder, in the **New SQL script (2)** drop-down list, select **Select TOP 100 rows (3)**.
 
       ![Azure portal with a cloud shell pane](./images/DA-image36.png)
 
-3. In the **Select TOP 100 rows** pane, in the **File type** list, select **Delta format** and then select **Apply**.
+1. In the **Select TOP 100 rows** pane, in the **File type** list, select **Delta format** and then select **Apply**.
 
-4. Review the SQL code that is generated, which should look like this:
+1. Review the SQL code that is generated, which should look like this:
 
     ```sql
     -- This is auto-generated code
@@ -459,7 +479,7 @@ In this lab, we will query a delta table from a serverless SQL pool. We will use
         ) AS [result]
     ```
 
-5. Use the **&#9655; Run** icon to run the script, and review the results. They should look similar to this:
+1. Use the **&#9655; Run** icon to run the script, and review the results. They should look similar to this:
 
     | ProductID | ProductName | Category | ListPrice |
     | -- | -- | -- | -- |
@@ -469,7 +489,7 @@ In this lab, we will query a delta table from a serverless SQL pool. We will use
 
     This demonstrates how you can use a serverless SQL pool to query delta format files that were created using Spark, and use the results for reporting or analysis.
 
-6. Replace the query with the following SQL code:
+1. Replace the query with the following SQL code:
 
     ```sql
     USE AdventureWorks;
@@ -477,14 +497,16 @@ In this lab, we will query a delta table from a serverless SQL pool. We will use
     SELECT * FROM Products;
     ```
 
-7. Run the code and observe that you can also use the serverless SQL pool to query Delta Lake data in catalog tables that are defined the Spark metastore.
+1. Run the code and observe that you can also use the serverless SQL pool to query Delta Lake data in catalog tables that are defined the Spark metastore.
 
- > **Congratulations** on completing the lab! Now, it's time to validate it. Here are the steps:
- > - Hit the Validate button for the corresponding task. If you receive a success message, you have successfully validated the lab. 
- > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
- > - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+    ![](./images/synap-gp-t4-22.png)
 
- <validation step="61bfb30e-1ad6-4205-97ae-935789802c65" />
+> **Congratulations** on completing the lab! Now, it's time to validate it. Here are the steps:
+> - Hit the Validate button for the corresponding task. If you receive a success message, you have successfully validated the lab. 
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+
+<validation step="61bfb30e-1ad6-4205-97ae-935789802c65" />
 
 ## Summary
 
